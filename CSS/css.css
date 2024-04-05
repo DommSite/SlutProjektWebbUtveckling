@@ -1,20 +1,61 @@
-body{
-    margin:0;
-    padding:0;
-    display: grid;
-    grid-template-rows: 70px 3.1em auto auto;
-    grid-template-areas: 
-    "header"
-    "nav"
-    "main"
-    "footer";
+body {
+	margin: 0;
+	padding: 0;
 }
-header{
-    list-style-type: none;
-    grid-area: header;
-    height: 3.5em;
+
+.wrapper {
+	display: grid;
+	grid-template-rows: min-content 3.1em auto auto;
+	grid-template-areas:
+		"header"
+		"nav"
+		"main"
+		"footer";
+	min-height: 100vh;
+	max-width: 100vw;
 }
-nav ul{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+
+header {
+	grid-area: header;
+	background-color: antiquewhite;
+	height: auto;
+}
+
+nav ul {
+	display: grid;
+	/*grid-template-columns: 1fr 1fr 1fr; ska bli dator varianten*/
+	grid-template-areas:
+		"hem hem"
+		"vad anvandning";
+	padding-inline-start: 0;
+	margin: 0;
+}
+
+nav li {
+	display: grid;
+	background-color: aqua;
+	font-size: 2em;
+	border-color: black;
+	border-width: 2px;
+	border-style: dashed;
+}
+nav li:first-child {
+	grid-area: hem;
+}
+
+nav li:nth-child(2) {
+	grid-area: vad;
+}
+
+nav li:nth-child(3) {
+	grid-area: anvandning;
+}
+li a {
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+main {
+	grid-area: main;
 }
