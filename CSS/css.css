@@ -5,13 +5,11 @@ body {
 
 .wrapper {
 	display: grid;
-	grid-template-rows: min-content 3.1em auto auto;
-	grid-template-columns: 1fr 1fr;
 	grid-template-areas:
-		"header header"
-		"nav nav"
-		"main main"
-		"footer footer";
+		"header"
+		"nav"
+		"main"
+		"footer";
 	min-height: 100vh;
 	max-width: 100vw;
 }
@@ -38,6 +36,15 @@ nav ul {
 		"vad anvandning";
 	padding-inline-start: 0;
 	margin: 0;
+	height: auto;
+}
+
+header + nav {
+	grid-area: nav;
+	display: inline-block;
+}
+header + nav li {
+	font-size: 1.5em;
 }
 
 nav li {
@@ -45,33 +52,43 @@ nav li {
 	background-color: aqua;
 	font-size: 2em;
 	border-color: black;
-	border-width: 2px;
 	border-style: dashed;
 }
 
 header nav li:first-child {
 	grid-area: hem;
+	height: auto;
 }
 
 header nav li:nth-child(2) {
 	grid-area: vad;
+	height: auto;
 }
 
 header nav li:nth-child(3) {
 	grid-area: anvandning;
+	height: auto;
 }
 
 nav:last-of-type {
 	grid-area: nav;
 	display: grid;
 	grid-template-columns: auto;
-	grid-template-rows: 10em;
+}
+
+li {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
 li a {
 	text-align: center;
 	margin-top: auto;
 	margin-bottom: auto;
+}
+
+h1 {
+	display: none;
 }
 
 main {
@@ -92,8 +109,13 @@ section {
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
+	font-size: 1.2em;
 }
 
 footer {
 	grid-area: footer;
+	position: fixed;
+	bottom: 0;
+	height: 70px;
+	background-color: blue;
 }
