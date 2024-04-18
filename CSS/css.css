@@ -35,7 +35,10 @@ header {
 
 header nav ul {
 	display: grid;
-	grid-template-areas:
+	grid-template-areas: 
+	"hem vad vad anvandning anvandning";
+	grid-template-columns: repeat(5,1fr);
+	/*grid-template-areas:
 		"hem hem"
 		"vad anvandning";
 	grid-template-columns: 1fr 1fr;
@@ -64,17 +67,17 @@ nav li {
 
 header nav li:first-child {
 	grid-area: hem;
-	height: auto;
+	height: 100%;
 }
 
 header nav li:nth-child(2) {
 	grid-area: vad;
-	height: auto;
+	height: 100%;
 }
 
 header nav li:nth-child(3) {
 	grid-area: anvandning;
-	height: auto;
+	height: 100%;
 }
 
 header + nav:last-of-type {
@@ -96,6 +99,7 @@ li {
 	margin-top: auto;
 	margin-bottom: auto;
 	height:100%;
+	width:100%;
 }
 
 li a {
@@ -125,11 +129,36 @@ main {
 }
 
 section {
-	display: block;
+	display: flex;
+	justify-content: center;
 	margin-right: auto;
 	margin-left: auto;
 	font-size: 1.2em;
+	padding:10px;
+	padding-left: 20px;
+	padding-right: 20px;
 }
+
+/*
+section:nth-child(4n+1){
+	background-color: chartreuse;
+	grid-column-start: 0;
+}
+section:nth-child(4n+2){
+	background-color:crimson;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+section:nth-child(4n-1){
+	background-color: blue;
+	grid-column-start: 1;
+	grid-column-end: 2;
+}
+section:nth-child(4n){
+	background-color:darkred;
+	grid-column-start: 2;
+}
+*/
 
 footer {
 	grid-area: footer;
@@ -138,4 +167,12 @@ footer {
 	width:100%;
 	text-align: center;
 	background-color: blue;
+}
+
+img{
+	max-height:100%;
+	max-width: 100%;
+	display: block;
+	margin: auto;
+	
 }
