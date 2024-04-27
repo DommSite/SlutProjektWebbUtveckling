@@ -1,8 +1,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	border-collapse: collapse;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: monospace;
 	height:100%
 }
 
@@ -17,6 +16,7 @@ body {
 	grid-template-rows: min-content min-content auto min-content;
 	min-height: 100vh;
 	max-width: 100vw;
+	
 }
 
 #index .wrapper {
@@ -30,7 +30,7 @@ body {
 
 header {
 	grid-area: header;
-	background-color: antiquewhite;
+	background-color: hsl(34, 78%, 91%);
 }
 
 header nav ul {
@@ -59,10 +59,9 @@ header + nav li {
 
 nav li {
 	display: grid;
-	background-color: aqua;
+	background-color: hwb(180 0% 0%);
 	font-size: 2em;
-	border-color: black;
-	border-style: dashed;
+	
 }
 
 header nav li:first-child {
@@ -75,7 +74,7 @@ header nav li:nth-child(2) {
 	height: 100%;
 }
 
-header nav li:nth-child(3) {
+header nav li:last-child {
 	grid-area: anvandning;
 	height: 100%;
 }
@@ -106,6 +105,7 @@ li a {
 	text-align: center;
 	margin-top: auto;
 	margin-bottom: auto;
+	height:100%;
 }
 
 h1{
@@ -128,7 +128,7 @@ main {
 	grid-template-rows: auto;
 }
 
-section {
+section, article{
 	display: flex;
 	justify-content: center;
 	margin-right: auto;
@@ -160,13 +160,17 @@ section:nth-child(4n){
 }
 */
 
+footer section{
+	padding-bottom: 0;
+}
 footer {
 	grid-area: footer;
-	bottom: 0;
+	margin:0;
+	padding:0;
 	height: 70px;
 	width:100%;
 	text-align: center;
-	background-color: blue;
+	background-color: rgb(0, 0, 255);
 }
 
 img{
@@ -174,5 +178,84 @@ img{
 	max-width: 100%;
 	display: block;
 	margin: auto;
+}
+
+figcaption{
+	text-align: center;
+}
+
+nav a{
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0; /* To ensure consistent border spacing */
+}
+
+th, td {
+	border: 1px solid #f81b1b;
+	text-align: left;
+	padding: 10px; /* Adjust padding as needed */
+	vertical-align: top; /* Align content to the top */
+}
+
+th {
+	background-color: #f2f2f2;
+}
+
+tfoot {
+	font-weight: bold; /* Make the footer text bold */
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #beb9b9;/* Zebra striping */
+}
+
+
+
+
+a:link{
+	color: purple;
+}
+a:visited{
+	color: red;
+}
+
+a:focus, a:hover{
+	background-image: linear-gradient( /* gör en bakgrunds bild med dessa färger som är roterade på de grandantal so manges och färgerna täcker den procent som anges. */
+		-225deg,
+		rgb(70,42,168) 0%,
+		rgb(96,25,172) 25%,
+		rgb(255,19,97) 50%,
+		rgb(255,248,0) 75%,
+		rgb(70,42,168) 100%
+	);
+	background-clip: border-box; /* sammarbetar med background-image och skapar en låda under innehålet den är på. */
+	background-size: 200% auto; /* bilden blir 200% större och repeteras automatiskt. */
+	animation: färgsnurra 5s linear infinite; /* */
+	border-radius: 10px;
+}
+
+a:active{
+	color: hotpink;
+}
+
+
+@keyframes färgsnurra { /*en nyckelrams animering som jag namngett färgsnurra, specifierar en övergång från nuvarande till målet, använder "to" som säger att målet är när den är helt ur skärmens storlek, 200% från vänster. I samband med att bakgrunden looper oändligt gör att det blir en fin övergång mellan start och slutet på de olika "sidorna"*/
+	to {
+		background-position: 200% center; 
+	}
+}
+
+
+@font-face {
+	font-family: Johans;
+	src: url();
+}
+
+@media screen {
 	
 }
