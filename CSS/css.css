@@ -7,25 +7,15 @@ body {
 
 .wrapper {
 	display: grid;
-	grid-template-areas:
-		"header"
-		"nav"
-		"main"
-		"footer";
-	grid-template-columns: 1fr;
-	grid-template-rows: min-content min-content auto min-content;
-	min-height: 100vh;
-	max-width: 100vw;
-	
-}
-
-#index .wrapper {
 	grid-template-rows: min-content auto min-content;
 	grid-template-columns: 1fr;
 	grid-template-areas:
 		"header"
 		"main"
 		"footer";
+	min-height: 100vh;
+	max-width: 100vw;
+	
 }
 
 header {
@@ -39,22 +29,8 @@ header > nav > ul {
 	grid-template-areas: 
 	"hem vad vad anvandning anvandning";
 	grid-template-columns: repeat(5,1fr);
-	/*grid-template-areas:
-		"hem hem"
-		"vad anvandning";
-	grid-template-columns: 1fr 1fr;
-	/*grid-template-rows: 1fr 1fr;*/
 	padding-inline-start: 0;
 	margin: 0;
-}
-
-header + nav {
-	grid-area: nav;
-	background-color: brown;
-}
-
-header + nav li {
-	font-size: 1.5em;
 }
 
 nav > ul > li {
@@ -76,28 +52,6 @@ header > nav > ul > li:nth-child(2) {
 header > nav > ul >li:last-child {
 	grid-area: anvandning;
 	height: 100%;
-}
-
-header + nav {/*eventuellt ta bort*/
-	grid-area: nav;
-}
-header + nav:last-of-type ul{/*eventuellt ta bort*/
-	/*display: grid;
-	grid-template-rows: 1fr;*/
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-	padding-inline-start: 0;
-	margin: 0;
-	height: 100%;
-}
-
-li {
-	/*margin-top: auto;
-	margin-bottom: auto;
-	height:100%;
-	width:100%;*/
 }
 
 li a {
@@ -149,13 +103,6 @@ header > nav > ul > li:not(:first-child) > section > button:hover + section, hea
 	pointer-events: auto;
 }
 
-/*
-header > nav > ul > li:not(:first-child) > section > section section > ul > li{
-	/*background-color: rgb(255, 255, 255);
-	height: min-content;
-}
-*/
-
 header > nav > ul > li:not(:first-child) > section section ul{
 	text-decoration: none;
 	width: 100%;
@@ -190,24 +137,6 @@ button{
 	height: 100%;
 }
 
-/*
-button a{
-	height: 100%;
-	width: max-content;
-	margin-top: 0;
-	margin-bottom: 0;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-}
-
-/*button a p{
-	margin-top: auto;
-	margin-bottom: auto;
-	font-size: 2rem;
-}*/
-
 button img{
 	width: auto;
 	height: 1rem;
@@ -215,11 +144,6 @@ button img{
 	margin-left: auto;
 	margin-right: auto;
 }
-
-/*
-button img:hover{
-	transform: rotate(180deg);
-}*/
 
 
 main {
@@ -247,26 +171,6 @@ main section, main article{
 	padding-left: 20px;
 	padding-right: 20px;
 }
-
-/*
-section:nth-child(4n+1){
-	background-color: chartreuse;
-	
-}
-section:nth-child(4n+2){
-	background-color:crimson;
-	
-	
-}
-section:nth-child(4n-1){
-	background-color: blue;
-	
-}
-section:nth-child(4n){
-	background-color:darkred;
-	
-}
-*/
 
 footer {
 	grid-area: footer;
@@ -325,6 +229,7 @@ tbody tr:nth-child(odd) {
 a:link{
 	color: purple;
 }
+
 a:visited{
 	color: red;
 }
