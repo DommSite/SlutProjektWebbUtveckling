@@ -129,7 +129,7 @@ header > nav > ul > li:not(:first-child) >section a{
 	margin-bottom: 0;
 }
 
-button{
+nav button{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -137,7 +137,7 @@ button{
 	height: 100%;
 }
 
-button img{
+nav button img{
 	width: auto;
 	height: 1rem;
 	transition: transform 150ms ease-in-out;
@@ -164,12 +164,15 @@ main {
 main section, main article{
 	display: flex;
 	justify-content: center;
-	margin-right: auto;
-	margin-left: auto;
+	/*margin-right: 20px;
+	margin-left: 20px;*/
+	margin: 2ex;
 	font-size: 1.2em;
-	padding:10px;
+	/*padding:10px;
 	padding-left: 20px;
-	padding-right: 20px;
+	padding-right: 20px;*/
+	background-color: rgb(153, 149, 149);
+	border-radius: 1ch;
 }
 
 footer {
@@ -193,18 +196,26 @@ figcaption{
 	text-align: center;
 }
 
+video{
+	width: auto;
+	max-width: 95%;
+	height: auto;
+	max-height: 95%;
+	margin: auto;
+}
+
 nav a{
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
-table {
+table, dl, ol {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0; /* To ensure consistent border spacing */
 }
 
-th, td {
+th, td, dt, dd, ol li {
 	border: 1px solid #f81b1b;
 	text-align: left;
 	padding: 10px; /* Adjust padding as needed */
@@ -215,13 +226,21 @@ th {
 	background-color: #f2f2f2;
 }
 
-tfoot {
+tfoot, dt {
 	font-weight: bold; /* Make the footer text bold */
 }
 
 tbody tr:nth-child(odd) {
 	background-color: #beb9b9;/* Zebra striping */
 }
+
+dl{
+	background-color: rgb(255, 255, 0);
+}
+ol{
+	padding: 0;
+}
+
 
 
 
@@ -266,6 +285,30 @@ a:active{
 	src: url();
 }
 
-@media screen {
+@media screen and (max-width: 630px){
+	header > nav > ul {
+		grid-template-areas: 
+		"hem hem" 
+		"vad anvandning";
+		grid-template-columns:1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+	}
+
+	main {
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+	}
+
+	header > nav > ul > li:not(:first-child) > section li{
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
 	
+	main section, main article{
+		
+		padding-left: 40px;
+		padding-right: 40px;
+	}
+
+
 }
