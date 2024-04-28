@@ -31,6 +31,7 @@ body {
 header {
 	grid-area: header;
 	background-color: hsl(34, 78%, 91%);
+	font-size: 1em;
 }
 
 header > nav > ul {
@@ -93,10 +94,10 @@ header + nav:last-of-type ul{/*eventuellt ta bort*/
 }
 
 li {
-	margin-top: auto;
+	/*margin-top: auto;
 	margin-bottom: auto;
 	height:100%;
-	width:100%;
+	width:100%;*/
 }
 
 li a {
@@ -104,23 +105,35 @@ li a {
 	margin-top: auto;
 	margin-bottom: auto;
 	height:100%;
+	display: flex;
+  	justify-content: center;
+ 	align-items: center;
+	font-size: 2rem;
 }
 
 h1{
-	font-size: inherit;
+	font-size: 2rem;
 }
 
+header > nav > ul > li:not(:first-child){
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: 2fr 1fr;
+}
 
-header > nav > ul > li:nth-child(2), header > nav > ul > li:nth-child(3){
+header > nav > ul > li:not(:first-child) > section{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
 	position: relative;
 }
 
-header > nav > ul > li:nth-child(2) section, header > nav > ul > li:nth-child(3) section{
+header > nav > ul > li:not(:first-child) > section section{
 	position: absolute;
-	left: 0;
 	height: min-content;
-	width: min-content;
-	background-color: white;
+	width: 100%;
+	background-color:aquamarine;
 	top: calc(100%);
 	border-radius: .25rem;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
@@ -130,22 +143,84 @@ header > nav > ul > li:nth-child(2) section, header > nav > ul > li:nth-child(3)
 	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
 }
 
-header > nav > ul > li:not(:first-child) > button:hover + section, header > nav > ul > li:not(:first-child) > section:hover, header > nav > ul > li:not(:first-child) > button:focus-within + section, header > nav > ul > li:not(:first-child) > section:focus-within{
+header > nav > ul > li:not(:first-child) > section > button:hover + section, header > nav > ul > li:not(:first-child) > section > section:hover, header > nav > ul > li:not(:first-child) > section > button:focus-within + section, header > nav > ul > li:not(:first-child) > section > section:focus-within{
 	opacity: 1;
 	transform: translateY(0);
 	pointer-events: auto;
 }
-header > nav > ul > li:nth-child(2) section > ul > li. header > nav > ul > li:nth-child(3) section > ul > li{
-	background-color: rgb(255, 255, 255);
+
+/*
+header > nav > ul > li:not(:first-child) > section > section section > ul > li{
+	/*background-color: rgb(255, 255, 255);
 	height: min-content;
 }
-header > nav > ul > li:nth-child(2) section ul,header > nav > ul > li:nth-child(3) section ul {
+*/
+
+header > nav > ul > li:not(:first-child) > section section ul{
 	text-decoration: none;
-	width: min-content;
+	width: 100%;
 	height: min-content;
 	list-style: none;
 	padding: 0;
 }
+
+header > nav > ul > li:not(:first-child) > section li{
+	height: min-content;
+	width:100%;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+
+header > nav > ul > li:not(:first-child) >section a{
+	height: 100%;
+	width:100%;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+button{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background-color: inherit;
+	height: 100%;
+}
+
+/*
+button a{
+	height: 100%;
+	width: max-content;
+	margin-top: 0;
+	margin-bottom: 0;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+
+/*button a p{
+	margin-top: auto;
+	margin-bottom: auto;
+	font-size: 2rem;
+}*/
+
+button img{
+	width: auto;
+	height: 1rem;
+	transition: transform 150ms ease-in-out;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*
+button img:hover{
+	transform: rotate(180deg);
+}*/
+
 
 main {
 	grid-area: main;
@@ -176,21 +251,20 @@ main section, main article{
 /*
 section:nth-child(4n+1){
 	background-color: chartreuse;
-	grid-column-start: 0;
+	
 }
 section:nth-child(4n+2){
 	background-color:crimson;
-	grid-column-start: 1;
-	grid-column-end: 2;
+	
+	
 }
 section:nth-child(4n-1){
 	background-color: blue;
-	grid-column-start: 1;
-	grid-column-end: 2;
+	
 }
 section:nth-child(4n){
 	background-color:darkred;
-	grid-column-start: 2;
+	
 }
 */
 
@@ -204,7 +278,7 @@ footer {
 	background-color: rgb(0, 0, 255);
 }
 
-img{
+main img{
 	max-height:100%;
 	max-width: 100%;
 	display: block;
@@ -255,7 +329,7 @@ a:visited{
 	color: red;
 }
 
-a:focus, a:hover, {
+a:focus, a:hover{
 	background-image: linear-gradient( /* gör en bakgrunds bild med dessa färger som är roterade på de grandantal so manges och färgerna täcker den procent som anges. */
 		-225deg,
 		rgb(70,42,168) 0%,
