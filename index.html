@@ -89,52 +89,101 @@
 				<section>
 					<form action="index.html" method="post">
 						<fieldset>
-							<legend>Customer Information</legend>
-							<label for="name">Name:</label>
-							<input type="text" id="name" name="name" value="" placeholder="Enter your name" required>
+							<legend>Information saker</legend>
+							<label for="namn">Namn:</label>
+							<input type="text" id="namn" name="namn" value="" placeholder="Skriv in ditt namn" required>
 							<br>
 							<label for="email">Email:</label>
-							<input type="email" id="email" name="email" value="" placeholder="Enter your email" required>
+							<input type="email" id="email" name="email" value="" placeholder="Skriv din mejl" required>
 							<br>
-							<label for="phone">Phone Number:</label>
-							<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+							<label for="mobil">Telefon nummer:</label>
+							<input type="tel" id="mobil" name="mobil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
 							<br>
-							<label for="address">Shipping Address:</label>
-							<textarea id="address" name="address" placeholder="Enter your shipping address"></textarea>
+							<label for="address">Adress:</label>
+							<textarea id="address" name="address" placeholder="Skriv in din adress"></textarea>
 							<br>
-							<label for="quantity">Quantity:</label>
-							<input type="number" id="quantity" name="quantity" value="" placeholder="Enter quantity" min="1" required>
+							<label for="ålder">Ålder:</label>
+							<input type="number" id="ålder" name="ålder" value="" placeholder="Skriv din ålder" min="1" required>
 							<br>
-							<label for="material">Material:</label>
-							<select id="material" name="material" required>
-								<option value="">Select Material</option>
-								<option value="PLA">PLA</option>
-								<option value="ABS">ABS</option>
-								<option value="PETG">PETG</option>
+							<label for="bil">Favorit bil märke:</label>
+							<select id="bil" name="bil" required>
+								<option value="" selected disabled>Välj märke</option>
+								<option value="Volvo" >Volvo</option>
+								<option value="BMW">BMW</option>
+								<option value="Toyota">Toyota</option>
 							</select>
 							<br>
-							<label for="color">Color:</label>
-							<input type="color" id="color" name="color" value="#ffffff">
+							<label for="färg">Favorit färg:</label>
+							<input type="color" id="färg" name="färg" value="#ffffff">
 						</fieldset>
 						<br>
 						<fieldset>
-							<legend>Printing Preferences</legend>
-							<label for="resolution">Resolution:</label>
-							<input type="range" id="resolution" name="resolution" value="0.1" min="0.1" max="1" step="0.1">
+							<legend>Frågor 2 för krav</legend>
+							<label for="välj">Vet inte men välj:</label>
+							<input type="range" id="välj" name="välj" value="0.1" min="0.1" max="1" step="0.1">
 							<br>
-							<label for="infill">Infill Percentage:</label>
-							<input type="number" id="infill" name="infill" value="" placeholder="Enter infill percentage" min="0" max="100" step="1">
+							<label for="infill">Favorit procent infill i 3d skrifter:</label>
+							<input type="number" id="infill" name="infill" value="" placeholder="Välj infill procenten du föredrar" min="0" max="100" step="1">
 							<br>
-							<label for="delivery">Delivery Date:</label>
-							<input type="date" id="delivery" name="delivery" required>
+							<label for="datum">Dagens datum:</label>
+							<input type="date" id="datum" name="datum" required>
 							<br>
-							<label for="rush">Rush Order:</label>
-							<input type="checkbox" id="rush" name="rush" value="yes">
+							<label for="måbra">Mår du bra?</label>
+							<input type="checkbox" id="måbra" name="måbra" value="ja">
+							<br>
+							<label for="lösen">Hemlig text:</label>
+							<input type="password" id="lösen" name="lösen" value="lösen">
+							<br>
+							<label for="arton">Är du under eller över 18?</label><br>
+							<input type="radio" id="underarton" name="arton" value="under18" checked> &lt;18<br>
+							<input type="radio" id="överarton" name="arton" value="överarton"> 18+<br>
+							<br>	
+							<label for="url">Favorit URL:</label><br>
+							<input type="url" id="url" name="url" value="https://exempel.se"><br>
+							<br>
+							<label for="tid">Klockslag:</label><br>
+							<input type="time" id="tid" name="tid" value="12:00"><br>
+							<br>
+							<label for="test">Test tryck knappen innan du skickar in dina svar:</label><br>
+							<button type="button" id="test" name="test">Test knapp</button><br>
+							<br>
+							<label for="datalist">Datalist:</label><br>
+							<input list="browsers" name="browser" id="datalist">
+							<datalist id="browsers">
+								<option value="Chrome">
+								<option value="Firefox">
+								<option value="Edge">
+								<option value="Safari">
+								<option value="Opera">
+							</datalist><br>
+							<label for="progress">haha lurad:</label><br>
+							<progress id="progress" value="50" max="100"></progress><br>
 						</fieldset>
 						<br>
-						<button type="submit">Place Order</button>
+						<button type="submit">Skicka in</button>
 					</form>
 				</section>
+				<!--
+				<section>
+					<form>
+						
+						
+					
+						<label for="tel">Tel:</label><br>
+						<input type="tel" id="tel" name="tel" value="1234567890"><br>
+						
+						<label for="search">Search:</label><br>
+						<input type="search" id="search" name="search" placeholder="Search..."><br>
+						
+						<label for="output">Output:</label><br>
+						<output id="output" name="output">Output Value</output><br>
+						
+						
+						
+						
+					</form>
+				</section>
+				-->
 			</main>
 			<footer role="contentinfo">
 				<section>

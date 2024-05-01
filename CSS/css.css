@@ -54,7 +54,7 @@ header > nav > ul >li:last-child {
 	height: 100%;
 }
 
-li a {
+li a{
 	text-align: center;
 	margin-top: auto;
 	margin-bottom: auto;
@@ -125,8 +125,10 @@ header > nav > ul > li:not(:first-child) > section li{
 header > nav > ul > li:not(:first-child) >section a{
 	height: 100%;
 	width:100%;
+	max-width: 100%;
 	margin-top: 0;
 	margin-bottom: 0;
+	font-size: 100%;
 }
 
 nav button{
@@ -155,10 +157,11 @@ main {
 }
 
 #index main {
-	grid-area: main;
-	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: auto;
+}
+
+#industriellanvandning main{
+	grid-template-columns: 1fr 1fr 1fr;
 }
 
 main section, main article{
@@ -196,7 +199,7 @@ figcaption{
 	text-align: center;
 }
 
-video{
+video, audio{
 	width: auto;
 	max-width: 95%;
 	height: auto;
@@ -207,6 +210,14 @@ video{
 nav a{
 	text-decoration: none;
 	text-transform: uppercase;
+}
+table{
+	table-layout:fixed;
+}
+td, th{
+	overflow: hidden; 
+    text-overflow: ellipsis; 
+    word-wrap: break-word;
 }
 
 table, dl, ol {
@@ -241,6 +252,13 @@ ol{
 	padding: 0;
 }
 
+fieldset{
+	border-color: #f81b1b;
+}
+
+form input, form button, form{
+	margin: 10px;
+}
 
 
 
@@ -289,9 +307,10 @@ a:active{
 	header > nav > ul {
 		grid-template-areas: 
 		"hem hem" 
+		"vad anvandning"
 		"vad anvandning";
 		grid-template-columns:1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr;
 	}
 
 	main {
@@ -309,6 +328,5 @@ a:active{
 		padding-left: 40px;
 		padding-right: 40px;
 	}
-
 
 }
