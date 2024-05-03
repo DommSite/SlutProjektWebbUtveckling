@@ -1,172 +1,167 @@
-body {
-	margin: 0;
-	padding: 0;
-	font-family: monospace;
-	height:100%
+/*----------------------------------Börjar med grund regler och layout----------------------------------*/
+
+body {/*innehåller allt innehåll på sidan*/
+	margin: 0; /* Återställer marginalen till 0 för att undvika ovälkomna utrymmen */
+	padding: 0;/*samma men för padding*/
+	font-family: monospace;/*sätter font familyn till mitt favorit typsnitt vilket är monospace vilket alla kan använda*/
+	height:100vh; /*Sätter storleken till 100vh*/
 }
 
-.wrapper {
-	display: grid;
-	grid-template-rows: min-content auto min-content;
-	grid-template-columns: 1fr;
-	grid-template-areas:
+.wrapper {/*innehåller all praktiskt innehåll på sidan, börjar med layouten, påverkar klassen wrapper som är en av de två sakerna som finns i body*/
+	display: grid;/*gör ett gridsystem för sidan*/
+	grid-template-rows: min-content min-content auto min-content;/*specicerar delarnas höjd, header, nav och footern får precis den platsen som de behöver medans main fyller på automatiskt*/
+	grid-template-areas:/*sätter it arearona på deras platser*/
 		"header"
+		"nav"
 		"main"
 		"footer";
-	min-height: 100vh;
-	max-width: 100vw;
+	min-height: 100vh;/*gör så att innehållet inte blir mindre än en skärms höjd*/
+	max-width: 100vw;/*ser till att innehållet inte blir bredare än skärmens bredd*/
 	
 }
 
-header {
-	grid-area: header;
-	background-color: hsl(34, 78%, 91%);
-	font-size: 1em;
+body > p{/*gömmer mitt felmedellande by default, påverkar p taggar som är direkt innuti body, vilket bara finns 1 av*/
+	display: none;/*gör att felmedellandet göms*/
 }
 
-header > nav > ul {
-	display: grid;
+/*----------------------------------Regler för Header och nav, börjar med grundregler, sedan layout och sen mer specifikt----------------------------------*/
+
+header {/*påverkar elementet header*/
+	grid-area: header;/*sätter ut detta på wrapperns grid area på header platsen*/
+}
+
+header > nav > ul {/*globala menyn och deras layout samt lite små styling, påverkar ul taggar som är direkt inuti nav som är direkt inuti header*/
+	display: grid;/*sätter en grid inuti så det går att dela upp det*/
 	grid-template-areas: 
-	"hem vad vad anvandning anvandning";
-	grid-template-columns: repeat(5,1fr);
-	padding-inline-start: 0;
-	margin: 0;
+	"hem vad vad anvandning anvandning";/*definerar de 3 areorna,*/
+	grid-template-columns: repeat(5,1fr);/*sätter ut 5 kolumner, använder repeat saken så jag slapp skriva 1fr 5 gånger*/
+	padding:0;/*tar bort padding som automatiskt finns på ul*/
+	margin: 0;/*samma men margin*/
 }
 
-nav > ul > li {
-	display: grid;
-	background-color: hwb(180 0% 0%);
-	font-size: 2em;
+nav > ul > li {/*påverkar li direkt inom ul direkt inom nav*/
+	display: grid;/*sätter it em grid så hela ytan är klickbar*/
+	background-color: hwb(180 0% 0%); /*sätter bakgrundsfärgen till en fin blå*/
 }
 
-header > nav > ul > li:first-child {
-	grid-area: hem;
-	height: 100%;
+header > nav > ul > li:first-child {/*påverkar den första li som är direkt inuti ul, direkt i nav direkt i header*/
+	grid-area: hem;/*sätter ut den på headernavul gridden*/
+	height: 100%;/*sätter storleken till 100% för att fylla ut hela griden så det inte blir några mellanrum för andra element i griden är större*/
 }
 
-header > nav > ul > li:nth-child(2) {
-	grid-area: vad;
-	height: 100%;
+header > nav > ul > li:nth-child(2) {/*samma men för #2*/
+	grid-area: vad;/*samma men annan plats*/
+	height: 100%;/*samma*/
 }
 
-header > nav > ul >li:last-child {
-	grid-area: anvandning;
-	height: 100%;
+header > nav > ul >li:last-child {/*samma men för sista*/
+	grid-area: anvandning;/*samma men annan plats*/
+	height: 100%;/*samma*/
 }
 
-li a{
-	text-align: center;
-	margin-top: auto;
-	margin-bottom: auto;
-	height:100%;
-	display: flex;
-  	justify-content: center;
- 	align-items: center;
-	font-size: 2rem;
+a{/*påverkar alla a element i hela koden*/
+	display: flex;/*definerar en flex system eller vad det kallas på alla a element*/
+  	justify-content: center;/*ser till att innehållet blir centrerat horizonetllt i platsen den får*/
+ 	align-items: center;/*centrerar innehållet vertikalt*/
+	font-size: 2rem;/*sätter textstorleken till 2 större än rotelementets textstorlek*/
 }
 
-h1{
-	font-size: 2rem;
+main a{/*påverkar alla a taggar inom main*/
+	font-size: inherit;/*ger den storleken som tidigare element hade*/
+	margin: 10px;/*sätter lite margin på a taggarna så att de inte ligger precis intill någon kant*/
+}
+h1{/*påverkar h1, titel elementet*/
+	font-size: 2rem;/*sätter textstorleken så det är lite större än de andra i header elementet*/
+	font-family: JohansFont, monospace;/*Bestämmer vilken ordning som fonten ska appliceras, först blir min egna fontface som är med en font som jag laddat ner, om inte det funkar så blir det default monospace*/
 }
 
-header > nav > ul > li:not(:first-child){
-	display: grid;
-	grid-template-columns: 100%;
-	grid-template-rows: 2fr 1fr;
-}
-
-header > nav > ul > li:not(:first-child) > section{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-	position: relative;
-}
-
-header > nav > ul > li:not(:first-child) > section section{
-	position: absolute;
-	height: min-content;
-	width: 100%;
-	background-color:aquamarine;
-	top: calc(100%);
-	border-radius: .25rem;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .1);
-	opacity: 0;
-	pointer-events: none;
-	transform: translateY(-10px);
-	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-}
-
-header > nav > ul > li:not(:first-child) > section > button:hover + section, header > nav > ul > li:not(:first-child) > section > section:hover, header > nav > ul > li:not(:first-child) > section > button:focus-within + section, header > nav > ul > li:not(:first-child) > section > section:focus-within{
-	opacity: 1;
-	transform: translateY(0);
-	pointer-events: auto;
-}
-
-header > nav > ul > li:not(:first-child) > section section ul{
-	text-decoration: none;
-	width: 100%;
-	height: min-content;
-	list-style: none;
-	padding: 0;
-}
-
-header > nav > ul > li:not(:first-child) > section li{
-	height: min-content;
-	width:100%;
-	margin-top: 0;
-	margin-bottom: 0;
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: space-evenly;
-}
-
-header > nav > ul > li:not(:first-child) >section a{
-	height: 100%;
-	width:100%;
-	max-width: 100%;
-	margin-top: 0;
-	margin-bottom: 0;
-	font-size: 100%;
-}
-
-nav button{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	background-color: inherit;
-	height: 100%;
-}
-
-nav button img{
-	width: auto;
-	height: 1rem;
-	transition: transform 150ms ease-in-out;
-	margin-left: auto;
-	margin-right: auto;
+header + nav{/*påverkar nav direkt efter header elementet*/
+	grid-area: nav;/*sätter ut innehållet inom wrapperns areor*/
+	height: 100%;/*maxar ut storleken som den får och behöver*/
+	margin-top: 10px;/*sätter margin på toppen så innehållet inte ligger för nära header*/
+	background-color: #00ffff;/*sätter en bakgrundsfärg på naven*/
+	min-height: 30px;/*satte en minimum storlek så ytan inte blir för liten*/
+	position: relative;/* Positionerar elementet relativt dess normala läge */
 }
 
 
-main {
-	grid-area: main;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-template-rows: auto;
+header + nav section{/*påverkar alla sectioner  som finns inuti naven som är efter header*/
+	position: absolute;/*positionerar elementet relativt till förälderelementet(header+nav position:relative saken*/
+	height: min-content;/*sätter höjden till innehållets storlek*/
+	width: 100%;/*sträcker sig över hela skärmens bredd*/
+	background-color:aquamarine;/*bakgrundsfärg*/
+	top: 100%;/*sätter marginen för toppen vilket är 100% av dess blocks storlek, aka den sätts under självaste header+nav saken*/
+	box-shadow: 0 10px 50px 0 rgba(0, 0, 0, .5); /*gör en skuggningseffekt som har 10px vertical offset, 50px blur radius som är avståndet, den sista är färgen och opacityn på den*/
+	opacity: 0;/*sätter synligheten på innehållet till 0*/
+	pointer-events: none;/*gör så att man inte kan interagera med innehållet även om det finns där som osynligt*/
+	transform: translateY(-10px);/*gör en transformation där innehållet är normalt 10px upp men när den aktiveras åker den ner*/
+	transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;/*gör en css animation transition där opacityn blir som eftersökt när den aktiveras, händer under 150ms, är en mjuk övergång, aktiverar även transformen ovan med samma tid och samma mjukhet så allt kommer i en enda fin övergång*/
+}
+
+header + nav:hover section, header + nav:focus-within section{/*påverkar section inom nav när den hoveras som är efter header eller section när naven har focus på antingen sig själv eller sitt innehåll*/
+	opacity: 1;/*sätter om opacityn på innehållet till helfärgat*/
+	transform: translateY(0);/*flyttar på innehållet till sin orginella position*/
+	pointer-events: auto;/*återställer musens möjlighet att interagera med innehållet*/
+}
+
+header + nav ul/*påverkar alla ul inom nav som är efter header*/
+{
+	padding: 0;/*tar bort den automatiska paddingen*/
+}
+
+header + nav li, header + nav/*påverkar li inom nav efter header och nav efter header*/
+{
+	margin-top: 0;/*tar bort mellanrummet mellan */
+	display: flex;/*gör display flex för att lättare centrera allt*/
+	flex-direction: column;/*gör så att innehållet i dropdownmenyn sträcker sig över hela skärmen och är lättare klickad*/
+}
+
+li a{/*påverkar alla a element inom en li*/
+	text-align: center;/*centrerar texten som finns*/
+}
+
+nav button{/*påverkar alla buttons inom nav*/	
+	border: 0;/*tar bort bordern som button har*/
+	background-color: inherit;/*får samma bakgrund som tidigare vilket är den fina blå*/
+	height: 100%;/*sätter höjden på 100% så att inte sectionen under den trycker upp den*/
+}
+
+nav button img{/*påverkar img inom button inom nav*/
+	height: 1rem;/*sätter en höjd av storleken 1rem på bilden, blir automatiskt samma på bredden också*/	
+}
+
+nav a{/*påverkar alla a element inom nav*/
+	text-decoration: none;/*tar bort underlinen på alla länkar inom nav*/
+	text-transform: uppercase;/*gör om all text till stora bokstäver*/
+}
+
+/*----------------------------------Börjar med allting inom main----------------------------------*/
+
+main {/*påverkar elementet main*/
+	grid-area: main;/*sätter ut området på wrapperns grid areor*/
+	display: grid;/*skapar en ny grid inuti den*/
+	grid-template-columns: 1fr 1fr;/*skapar 2 kolumner inom griden*/
 	min-height: 100%;
 }
 
 #index main {
 	grid-template-columns: 1fr;
+	background-color: rgb(128, 0, 128);
 }
 
 #industriellanvandning main{
 	grid-template-columns: 1fr 1fr 1fr;
+	background-color: hwb(25 12% 18%);
+}
+
+main section:not(:first-child), main article:not(:first-child){
+	background-color: rgb(153, 149, 149);
 }
 
 main section, main article{
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	/*margin-right: 20px;
 	margin-left: 20px;*/
 	margin: 2ex;
@@ -174,18 +169,9 @@ main section, main article{
 	/*padding:10px;
 	padding-left: 20px;
 	padding-right: 20px;*/
-	background-color: rgb(153, 149, 149);
+	background-color: rgb(117, 90, 1);
 	border-radius: 1ch;
-}
-
-footer {
-	grid-area: footer;
-	margin:0;
-	padding:0;
-	height: 70px;
-	width:100%;
-	text-align: center;
-	background-color: rgb(0, 0, 255);
+	height: min-content;
 }
 
 main img{
@@ -200,20 +186,19 @@ figcaption{
 }
 
 video, audio{
+	min-width:min-content;
 	width: auto;
 	max-width: 95%;
 	height: auto;
 	max-height: 95%;
 	margin: auto;
+	
 }
 
-nav a{
-	text-decoration: none;
-	text-transform: uppercase;
-}
 table{
 	table-layout:fixed;
 }
+
 td, th{
 	overflow: hidden; 
     text-overflow: ellipsis; 
@@ -224,6 +209,8 @@ table, dl, ol {
 	width: 100%;
 	border-collapse: collapse;
 	border-spacing: 0; /* To ensure consistent border spacing */
+	margin-left: 5px;
+	margin-right: 5px;
 }
 
 th, td, dt, dd, ol li {
@@ -260,8 +247,46 @@ form input, form button, form{
 	margin: 10px;
 }
 
+form{
+	width: 100%;
+}
 
+/*----------------------------------Börjar med footer regler----------------------------------*/
 
+footer {
+	grid-area: footer;
+	margin:0;
+	padding:0;
+	height: 70px;
+	width:100%;
+	text-align: center;
+	background-color: rgb(0, 0, 255);
+}
+
+footer p{
+	margin-top: 5px;
+}
+
+footer p::first-letter{
+	font-family: JohansFont;
+}
+
+footer p::first-line{
+	color:#00ffff;
+}
+
+/*----------------------------------Alla speciella pseudoklasser----------------------------------*/
+
+p:target::after{
+	background-color: gold;
+}
+
+p:target::before {
+	font: 70% sans-serif;
+	content: "►";
+	color: limegreen;
+	margin-right: 0.25em;
+}
 
 a:link{
 	color: purple;
@@ -290,6 +315,7 @@ a:active{
 	color: hotpink;
 }
 
+/*----------------------------------Alla media queries----------------------------------*/
 
 @keyframes färgsnurra { /*en nyckelrams animering som jag namngett färgsnurra, specifierar en övergång från nuvarande till målet, använder "to" som säger att målet är när den är helt ur skärmens storlek, 200% från vänster. I samband med att bakgrunden looper oändligt gör att det blir en fin övergång mellan start och slutet på de olika "sidorna"*/
 	to {
@@ -297,23 +323,30 @@ a:active{
 	}
 }
 
-
 @font-face {
 	font-family: JohansFont;
-	src: url();
+	src: url(../FONTS/Sauce-Tomato-BF6633881064aa7.otf);
 }
 
-@media screen and (max-width: 630px){
+@media screen and (max-width:342px){
+	body > p{
+		display: contents;
+	}
+	.wrapper{
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px){
 	header > nav > ul {
 		grid-template-areas: 
 		"hem hem" 
-		"vad anvandning"
 		"vad anvandning";
 		grid-template-columns:1fr 1fr;
-		grid-template-rows: 1fr 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
 	}
 
-	main {
+	main, #industriellanvandning main {
 		grid-template-columns: 1fr;
 		grid-template-rows: auto;
 	}
@@ -329,4 +362,14 @@ a:active{
 		padding-right: 40px;
 	}
 
+	header h1, header a, header + nav a{
+		font-size: 1.5rem;
+	}
+
+}
+
+@media screen and (min-width: 2000px){
+	main{
+		grid-template-columns: 1fr 1fr 1fr;
+	}
 }

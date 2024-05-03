@@ -23,68 +23,21 @@
 							<a href="HTML/vad.html">								
 								Vad är en 3d skrivare									
 							</a>
-							<section>
-								<button>
-									<img src="IMAGES/menu-symbol-of-three-parallel-lines-svgrepo-com.svg" alt="Tre streck som visar att det finns fler val">
-								</button>
-								<section>
-									<ul>
-										<li>
-											<a href="HTML/hardvara.html">											
-												Hårdvara											
-											</a>
-										</li>
-										<li>
-											<a href="HTML/mjukvara.html">																						Mjukvara
-												
-											</a>
-										</li>
-										<li>
-											<a href="HTML/olikaskrivare.html">											
-												Olika Skrivare
-											</a>
-										</li>
-										<li>
-											<a href="HTML/modifikationer.html">								
-												Modifikationer										
-											</a>
-										</li>
-									</ul>
-								</section>
-							</section>
+						</li>							
 						<li>
 							<a href="HTML/anvandning.html">									
 								Användning av en 3d skrivare								
-							</a>
-							<section>
-								<button>
-									<img src="IMAGES/menu-symbol-of-three-parallel-lines-svgrepo-com.svg" alt="Tre streck som visar att det finns fler val">
-								</button>
-								<section>
-									<ul>
-										<li>
-											<a href="HTML/hobbayanvandning.html">											
-												Hobby Användning
-											</a>
-										</li>
-										<li>
-											<a href="HTML/industriellanvandning.html">											
-												Industriell Användning											
-											</a>
-										</li>
-									</ul>
-								</section>
-							</section>							
+							</a>			
 						</li>
 					</ul>
 				</nav>
-			</header>
+			</header>		
 			<main role="main">
 				<section>
 					<h2>VÄLKOMMEN</h2>
 				</section>
 				<article>
-					<p>Här visar vi information blablabla</p>
+					<a href="#footer">Hoppa till bottnen av sidan</a>
 				</article>
 				<section>
 					<form action="index.html" method="post">
@@ -128,15 +81,16 @@
 							<label for="datum">Dagens datum:</label>
 							<input type="date" id="datum" name="datum" required>
 							<br>
-							<label for="måbra">Mår du bra?</label>
-							<input type="checkbox" id="måbra" name="måbra" value="ja">
+							<p>Mår du bra?</p>
+							<input type="checkbox" id="måbra" name="måbra" value="ja"><label for="måbra">Ja</label>
 							<br>
 							<label for="lösen">Hemlig text:</label>
 							<input type="password" id="lösen" name="lösen" value="lösen">
 							<br>
-							<label for="arton">Är du under eller över 18?</label><br>
-							<input type="radio" id="underarton" name="arton" value="under18" checked> &lt;18<br>
-							<input type="radio" id="överarton" name="arton" value="överarton"> 18+<br>
+							<p>Är du under eller över 18?</p>
+							<input type="radio" id="underarton" name="arton" value="underarton" checked> &lt;18<label for="underarton"></label>
+							<br>
+							<input type="radio" id="overarton" name="arton" value="overarton"> 18+<label for="overarton"></label>
 							<br>	
 							<label for="url">Favorit URL:</label><br>
 							<input type="url" id="url" name="url" value="https://exempel.se"><br>
@@ -163,33 +117,20 @@
 						<button type="submit">Skicka in</button>
 					</form>
 				</section>
-				<!--
-				<section>
-					<form>
-						
-						
-					
-						<label for="tel">Tel:</label><br>
-						<input type="tel" id="tel" name="tel" value="1234567890"><br>
-						
-						<label for="search">Search:</label><br>
-						<input type="search" id="search" name="search" placeholder="Search..."><br>
-						
-						<label for="output">Output:</label><br>
-						<output id="output" name="output">Output Value</output><br>
-						
-						
-						
-						
-					</form>
-				</section>
-				-->
 			</main>
-			<footer role="contentinfo">
+			<footer role="contentinfo" id="footer">
 				<section>
-					<p>hejhej</p>
+					<p>
+						Här brukar man ha kontakt information
+						<br>
+						men det har jag inte
+					</p>
 				</section>
 			</footer>
 		</div>
+		<p>
+			Din enhet har för smal skärm för att fungera med våran hemsida, vänligen använd en annan enhet
+		</p>
+		
 	</body>
 </html>
