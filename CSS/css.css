@@ -1,4 +1,7 @@
-/*----------------------------------Börjar med grund regler och layout----------------------------------*/
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------------------------------------------------Börjar med grund regler och layout------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 body {/*innehåller allt innehåll på sidan*/
 	margin: 0; /* Återställer marginalen till 0 för att undvika ovälkomna utrymmen */
@@ -24,7 +27,11 @@ body > p{/*gömmer mitt felmedellande by default, påverkar p taggar som är dir
 	display: none;/*gör att felmedellandet göms*/
 }
 
-/*----------------------------------Regler för Header och nav, börjar med grundregler, sedan layout och sen mer specifikt----------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------Regler för Header och nav, börjar med grundregler, sedan layout och sen mer specifikt----------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 header {/*påverkar elementet header*/
 	grid-area: header;/*sätter ut detta på wrapperns grid area på header platsen*/
@@ -135,147 +142,146 @@ nav a{/*påverkar alla a element inom nav*/
 	text-transform: uppercase;/*gör om all text till stora bokstäver*/
 }
 
-/*----------------------------------Börjar med allting inom main----------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------Börjar med allting inom main---------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 main {/*påverkar elementet main*/
 	grid-area: main;/*sätter ut området på wrapperns grid areor*/
 	display: grid;/*skapar en ny grid inuti den*/
 	grid-template-columns: 1fr 1fr;/*skapar 2 kolumner inom griden*/
-	min-height: 100%;
 }
 
-#index main {
-	grid-template-columns: 1fr;
-	background-color: rgb(128, 0, 128);
+#index main {/*gör en unik enspaltsläayout för startsidan, id på indexens body*/
+	grid-template-columns: 1fr;/*ändrar kolumnerna till 1*/
+	background-color: rgb(128, 0, 128);/*ändrar bakgrundsfärgen för att mer tydligt se att den är unik*/
 }
 
-#industriellanvandning main{
-	grid-template-columns: 1fr 1fr 1fr;
-	background-color: hwb(25 12% 18%);
+#industriellanvandning main{/*samma men för industriellanvändning sidan*/
+	grid-template-columns: 1fr 1fr 1fr;/*trespaltslayout istället för standard 2*/
+	background-color: hwb(25 12% 18%);/*ändrar bakgrundsfärgen*/
 }
 
-main section:not(:first-child), main article:not(:first-child){
-	background-color: rgb(153, 149, 149);
+main section:not(:first-child), main article:not(:first-child){/*påverkar alla sections och articles inom main som inte är den första på sidan*/
+	background-color: rgb(153, 149, 149);/*ändrar default färgen från brun till en fin grå*/
 }
 
-main section, main article{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	/*margin-right: 20px;
-	margin-left: 20px;*/
-	margin: 2ex;
-	font-size: 1.2em;
-	/*padding:10px;
-	padding-left: 20px;
-	padding-right: 20px;*/
-	background-color: rgb(117, 90, 1);
-	border-radius: 1ch;
-	height: min-content;
+main section, main article{/*påverkar alla sections or articles inom main*/
+	display: flex;/*gör dem till flex*/
+	justify-content: center;/*centrerar innehållet horizontellt*/
+	align-items: center;/*ifall det är mer innehåll i varje section så ser detta till att deras mittpunkt vertikalt är på samma nivå*/
+	margin: 2ex;/*ser till att det är lite mellanrum mellan varje section och artikel*/
+	font-size: 1.2em;/*ändrar storleken till 1.2em då det passar väl*/
+	background-color: rgb(117, 90, 1);/*sätter bakgrundsfärgen på alla sections till brun(den tidigare selektorsaken motverkar detta på alla utom den första*/
+	border-radius: 1ch;/*rundar hörnen med intensiteten 1ch*/
+	height: min-content;/*ser till att höjden inte är större än precis det som behövs*/
 }
 
-main img{
-	max-height:100%;
-	max-width: 100%;
-	display: block;
-	margin: auto;
+main img{/*påverkar alla bilder inom main*/
+	max-width: 100%;/*ser till att bilderna inte tar mer bredd än vad som finns inom sectionen för att hålla gridlayouten*/
 }
 
-figcaption{
-	text-align: center;
+figcaption{/*påverkar figcaption som ska ge en bit text till figure vilket innehåller bilder*/
+	text-align: center;/*centrerar texten*/
 }
 
-video, audio{
-	min-width:min-content;
-	width: auto;
-	max-width: 95%;
-	height: auto;
-	max-height: 95%;
-	margin: auto;
-	
+video, audio{/*påverkar video och ljud element*/
+	width: auto;/*breddas automatiskt ut efter dens plats*/
+	max-width: 95%;/*gör inte elementet större än 95% av sin ytans utrymme*/
+	height: auto;/*samma som med width*/
+	max-height: 95%;/*samma som med width*/
+	margin: 10px;/*ser till att det alltid är lite avstånd från kanterna*/
 }
 
-table{
-	table-layout:fixed;
+td, th{/*påverkar td och th vilket är självaste texten och innehållet i tabellen utom footern*/
+    word-wrap: break-word;/*ser  till att om innehållet är större än rutan att order bryts och inte överlappar till andra rutor*/
 }
 
-td, th{
-	overflow: hidden; 
-    text-overflow: ellipsis; 
-    word-wrap: break-word;
-}
-
-table, dl, ol {
-	width: 100%;
-	border-collapse: collapse;
-	border-spacing: 0; /* To ensure consistent border spacing */
-	margin-left: 5px;
+table, dl, ol {/*påverkar tabell, deskriptiv list och ordered list*/
+	width: 100%;/*ser till att det tar upp 100% av platsen den får och inte mer eller mindre*/
+	border-collapse: collapse;/*om det är 2 borders som rör samma kant så blir de samma*/
+	border-spacing: 0; /*mestadels för kravet men ser till att avståndet mellan varje cell i en tabell är 0, går att specifiera avståndet både vertikalt och horizontellt*/
+	margin-left: 5px;/*detta tillsammas med nästa sers till att det är lite mellanrum där jag ansåg att det behövdes*/
 	margin-right: 5px;
 }
 
-th, td, dt, dd, ol li {
-	border: 1px solid #f81b1b;
-	text-align: left;
-	padding: 10px; /* Adjust padding as needed */
-	vertical-align: top; /* Align content to the top */
+table{/*påverkar hela tabellen*/
+	table-layout:fixed;/*ser till att layouten av tabellen är bestämd, vilket är 100% av ytan den får*/
+	margin: 10px;/*sätter avstånd mellan kanterna av tabellen och sectionen*/
 }
 
-th {
-	background-color: #f2f2f2;
+th, td, dt, dd, ol li {/*påverkar th, td, dt, dd och li inom en ol*/
+	border: 1px solid #f81b1b;/*ger dem en kant som är 1px solid röd färg*/
+	text-align: left;/*gör att texten är åt vänster i tabellen för jag anser att det är bättre*/
+	padding: 10px; /*ser till att texten alltid har lite avstånd från sin cells border*/
+	vertical-align: top; /*gör att innehållet är så högt uppåt det kan*/
 }
 
-tfoot, dt {
-	font-weight: bold; /* Make the footer text bold */
+th {/*påverkar enbart th element*/
+	background-color: #f2f2f2;/*sätter en unik bakgrundsfärg*/
 }
 
-tbody tr:nth-child(odd) {
-	background-color: #beb9b9;/* Zebra striping */
+tfoot, dt {/*påverkat footern*/
+	font-weight: bold; /*gör texten fetstild*/
 }
 
-dl{
-	background-color: rgb(255, 255, 0);
-}
-ol{
-	padding: 0;
+tbody tr:nth-child(odd) {/*påverkar de udda av tr inom tbody, enbart för din zebra striping krav*/
+	background-color: #beb9b9;/* annan färg för zebra striping */
 }
 
-fieldset{
-	border-color: #f81b1b;
+dl{/*påverkar dl*/
+	background-color: rgb(255, 255, 0);/*mycket fin bakgrundsfärg*/
 }
 
-form input, form button, form{
-	margin: 10px;
+ol{/*påverkar ol*/
+	padding: 0;/*tar bort padding som automatiskt finns med ols siffror*/
 }
 
-form{
-	width: 100%;
+fieldset{/*påverkar fieldset som är runt formuläret*/
+	border-color: #f81b1b;/*sätter en färg på kanten*/
 }
 
-/*----------------------------------Börjar med footer regler----------------------------------*/
-
-footer {
-	grid-area: footer;
-	margin:0;
-	padding:0;
-	height: 70px;
-	width:100%;
-	text-align: center;
-	background-color: rgb(0, 0, 255);
+form input, form button, form{/*påverkar alla inputs och buttons inom form, samt självaste form*/
+	margin: 10px;/*sätter mellanrum mellan alla inputs och liknande så varje del inte är för nära de andra*/
 }
 
-footer p{
-	margin-top: 5px;
+form{/*påverkar hela formuläret*/
+	width: 100%;/*sätter storleken till 100% av sin ytas storlek*/
 }
 
-footer p::first-letter{
-	font-family: JohansFont;
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------Börjar med footer regler-----------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+footer {/*påverkar footer elementet*/
+	grid-area: footer;/*sätter ut elementet i wrapperns grid system*/
+	height: 70px;/*sätter en fast storlek på footern*/
+	text-align: center;/*centrerar texten i footern*/
+	background-color: rgb(0, 0, 255);/*sätter en bakgrundsfärg*/
+
 }
 
-footer p::first-line{
-	color:#00ffff;
+footer p{/*påverkar p element inom footer*/
+	margin-top: 5px;/*sätter ett avstånd från toppen på 5px*/
 }
 
-/*----------------------------------Alla speciella pseudoklasser----------------------------------*/
+footer p::first-letter{/*påverkar den först bokstaven av p inom footer*/
+	font-family: JohansFont;/*ändrar typsnittet till min speciella fontface, ifall det inte går återgår det till default typsnitt vilket är monospace*/
+}
+
+footer p::first-line{/*påverkar första linjen av p element inom footer*/
+	color:#00ffff;/*sätter en fin textfärg på sidan*/
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------Alla speciella pseudoklasser---------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 p:target::after{
 	background-color: gold;
@@ -288,15 +294,15 @@ p:target::before {
 	margin-right: 0.25em;
 }
 
-a:link{
-	color: purple;
+a:link{/*påverkar alla länkar inom a*/
+	color: purple;/*default textfärg är lila*/
 }
 
-a:visited{
-	color: red;
+a:visited{/*påverkar alla besökta a taggar*/
+	color: red;/*ger dem färgen rött*/
 }
 
-a:focus, a:hover{
+a:focus, a:hover{/*påverkar alla a taggar som man har musen över eller har fokus på*/
 	background-image: linear-gradient( /* gör en bakgrunds bild med dessa färger som är roterade på de grandantal so manges och färgerna täcker den procent som anges. */
 		-225deg,
 		rgb(70,42,168) 0%,
@@ -311,11 +317,15 @@ a:focus, a:hover{
 	border-radius: 10px;
 }
 
-a:active{
-	color: hotpink;
+a:active{/*påverkar alla aktiva a taggar*/
+	color: hotpink;/*gör färgen till bästa barbie rosa*/
 }
 
-/*----------------------------------Alla media queries----------------------------------*/
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------Alla coola @ saker--------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 @keyframes färgsnurra { /*en nyckelrams animering som jag namngett färgsnurra, specifierar en övergång från nuvarande till målet, använder "to" som säger att målet är när den är helt ur skärmens storlek, 200% från vänster. I samband med att bakgrunden looper oändligt gör att det blir en fin övergång mellan start och slutet på de olika "sidorna"*/
 	to {
@@ -323,53 +333,59 @@ a:active{
 	}
 }
 
-@font-face {
-	font-family: JohansFont;
-	src: url(../FONTS/Sauce-Tomato-BF6633881064aa7.otf);
+@font-face {/*skapar egen fontfamily med font-face*/
+	font-family: JohansFont;/*namn på min fontfamily*/
+	src: url(../FONTS/Sauce-Tomato-BF6633881064aa7.otf);/*den enda fonten som används är en som jag hittade online som var fri att använda*/
 }
 
-@media screen and (max-width:342px){
-	body > p{
-		display: contents;
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------Alla media queries--------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:342px){/*aktiveras enbart om det finns en skärm och den skärmen är mindre än 342px i bredd*/
+	body > p{/*påverkar p element direkt inuti body*/
+		display: contents;/*gör innehållet synligt*/
 	}
-	.wrapper{
-		display: none;
+	.wrapper{/*påverkar allt inom wrapper*/
+		display: none;/*gör innehållet synligt*/
 	}
+	/*hela denna saken är ett felmeddelande system som varnar om skärmen är för liten och inte kommer fungera bra med hemsidan*/
 }
 
-@media screen and (max-width: 480px){
-	header > nav > ul {
-		grid-template-areas: 
-		"hem hem" 
-		"vad anvandning";
-		grid-template-columns:1fr 1fr;
-		grid-template-rows: 1fr 1fr;
+@media screen and (max-width: 480px){/*aktiveras enbart om skärmen är mindre än 480px i bredd*/
+	header > nav > ul {/*påverkar ul direkt inuti nav direkt inuti header*/
+		grid-template-areas: /*ändrar layouten av globalmenyn*/
+		"hem hem" /*sätter hemknappen över allt*/
+		"vad anvandning";/*under hem så delas det upp i 2 som är för vad och användning*/
+		grid-template-columns:1fr 1fr;/*säger att det är uppdelat i 2 kolumner*/
+		grid-template-rows: 1fr 1fr;/*samma men för 2 rader*/
 	}
 
-	main, #industriellanvandning main {
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-	}
-
-	header > nav > ul > li:not(:first-child) > section li{
-		margin-top: 20px;
-		margin-bottom: 20px;
+	main, #industriellanvandning main {/*påverkar main samt industriellanvändningens main då den har högre specificitet i vanliga fall*/
+		grid-template-columns: 1fr;/*gör om innehållet till enspaltslayout*/
 	}
 	
-	main section, main article{
-		
-		padding-left: 40px;
-		padding-right: 40px;
+	main section, main article{/*påverkar alla sections och articles i main*/
+		padding-left: 40px;/*sätter lite mer avstånd till kanterna så det ser lite finare ut*/
+		padding-right: 40px;/*samma här*/
 	}
 
-	header h1, header a, header + nav a{
-		font-size: 1.5rem;
+	header h1, header a, header + nav a{/*påverkar h1 och a inom header samt a taggar inom nav efter header*/
+		font-size: 1.5rem;/*ändrar textstorleken*/
 	}
 
 }
 
-@media screen and (min-width: 2000px){
-	main{
-		grid-template-columns: 1fr 1fr 1fr;
+@media screen and (min-width: 2000px){/*aktiveras enbart om skärmen är bredare än 2000px, aka widescreen*/
+	main{/*påverkar main*/
+		grid-template-columns: 1fr 1fr 1fr;/*gör om layouten till 3 spaltslayout*/
 	}
 }
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------------------Slut av css koden---------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
