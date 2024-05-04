@@ -1,5 +1,13 @@
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------Början av all CSS kod------------------------------------------------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*------------------------------------------------------------------------------Börjar med grund regler och layout------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
@@ -20,13 +28,18 @@ body {/*innehåller allt innehåll på sidan*/
 		"footer";
 	min-height: 100vh;/*gör så att innehållet inte blir mindre än en skärms höjd*/
 	max-width: 100vw;/*ser till att innehållet inte blir bredare än skärmens bredd*/
-	
 }
 
 body > p{/*gömmer mitt felmedellande by default, påverkar p taggar som är direkt innuti body, vilket bara finns 1 av*/
 	display: none;/*gör att felmedellandet göms*/
 }
 
+a{/*påverkar alla a element i hela koden*/
+	display: flex;/*definerar en flex system eller vad det kallas på alla a element*/
+  	justify-content: center;/*ser till att innehållet blir centrerat horizonetllt i platsen den får*/
+ 	align-items: center;/*centrerar innehållet vertikalt*/
+	font-size: 2rem;/*sätter textstorleken till 2 större än rotelementets textstorlek*/
+}
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -66,23 +79,12 @@ header > nav > ul >li:last-child {/*samma men för sista*/
 	height: 100%;/*samma*/
 }
 
-a{/*påverkar alla a element i hela koden*/
-	display: flex;/*definerar en flex system eller vad det kallas på alla a element*/
-  	justify-content: center;/*ser till att innehållet blir centrerat horizonetllt i platsen den får*/
- 	align-items: center;/*centrerar innehållet vertikalt*/
-	font-size: 2rem;/*sätter textstorleken till 2 större än rotelementets textstorlek*/
-}
-
-main a{/*påverkar alla a taggar inom main*/
-	font-size: inherit;/*ger den storleken som tidigare element hade*/
-	margin: 10px;/*sätter lite margin på a taggarna så att de inte ligger precis intill någon kant*/
-}
 h1{/*påverkar h1, titel elementet*/
 	font-size: 2rem;/*sätter textstorleken så det är lite större än de andra i header elementet*/
 	font-family: JohansFont, monospace;/*Bestämmer vilken ordning som fonten ska appliceras, först blir min egna fontface som är med en font som jag laddat ner, om inte det funkar så blir det default monospace*/
 }
 
-header + nav{/*påverkar nav direkt efter header elementet*/
+header ~ nav{/*påverkar navs efter header elementet*/
 	grid-area: nav;/*sätter ut innehållet inom wrapperns areor*/
 	height: 100%;/*maxar ut storleken som den får och behöver*/
 	margin-top: 10px;/*sätter margin på toppen så innehållet inte ligger för nära header*/
@@ -168,7 +170,11 @@ main section:not(:first-child), main article:not(:first-child){/*påverkar alla 
 	background-color: rgb(153, 149, 149);/*ändrar default färgen från brun till en fin grå*/
 }
 
-main section, main article{/*påverkar alla sections or articles inom main*/
+main section section:first-child{/*påverkar den först section inom en annan section inom main, mestadels för att se till att uppdelat innehåll i en section inte ska få fel färg*/
+	background-color: inherit;/*tar efter färgen som sin förälderbehållare har*/
+}
+
+main > section, main > article{/*påverkar alla sections or articles inom main*/
 	display: flex;/*gör dem till flex*/
 	justify-content: center;/*centrerar innehållet horizontellt*/
 	align-items: center;/*ifall det är mer innehåll i varje section så ser detta till att deras mittpunkt vertikalt är på samma nivå*/
@@ -177,6 +183,19 @@ main section, main article{/*påverkar alla sections or articles inom main*/
 	background-color: rgb(117, 90, 1);/*sätter bakgrundsfärgen på alla sections till brun(den tidigare selektorsaken motverkar detta på alla utom den första*/
 	border-radius: 1ch;/*rundar hörnen med intensiteten 1ch*/
 	height: min-content;/*ser till att höjden inte är större än precis det som behövs*/
+	max-width: 100%;
+}
+/*
+#industriellanvandning main > section > div{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+*/
+/*-----Självaste innehåll saker-----*/
+
+main a{/*påverkar alla a taggar inom main*/
+	font-size: inherit;/*ger den storleken som tidigare element hade*/
+	margin: 10px;/*sätter lite margin på a taggarna så att de inte ligger precis intill någon kant*/
 }
 
 main img{/*påverkar alla bilder inom main*/
@@ -187,13 +206,16 @@ figcaption{/*påverkar figcaption som ska ge en bit text till figure vilket inne
 	text-align: center;/*centrerar texten*/
 }
 
-video, audio{/*påverkar video och ljud element*/
+video, audio, iframe{/*påverkar iframe, video och ljud element*/
 	width: auto;/*breddas automatiskt ut efter dens plats*/
 	max-width: 95%;/*gör inte elementet större än 95% av sin ytans utrymme*/
 	height: auto;/*samma som med width*/
 	max-height: 95%;/*samma som med width*/
 	margin: 10px;/*ser till att det alltid är lite avstånd från kanterna*/
+	border: none;
 }
+
+/*-----Tabellsaker samt listor-----*/
 
 td, th{/*påverkar td och th vilket är självaste texten och innehållet i tabellen utom footern*/
     word-wrap: break-word;/*ser  till att om innehållet är större än rutan att order bryts och inte överlappar till andra rutor*/
@@ -239,6 +261,8 @@ ol{/*påverkar ol*/
 	padding: 0;/*tar bort padding som automatiskt finns med ols siffror*/
 }
 
+/*-----Formulärsaker-----*/
+
 fieldset{/*påverkar fieldset som är runt formuläret*/
 	border-color: #f81b1b;/*sätter en färg på kanten*/
 }
@@ -262,11 +286,11 @@ footer {/*påverkar footer elementet*/
 	height: 70px;/*sätter en fast storlek på footern*/
 	text-align: center;/*centrerar texten i footern*/
 	background-color: rgb(0, 0, 255);/*sätter en bakgrundsfärg*/
-
+	color:#00ff2a;
 }
 
 footer p{/*påverkar p element inom footer*/
-	margin-top: 5px;/*sätter ett avstånd från toppen på 5px*/
+	margin-top: 15px;/*sätter ett avstånd från toppen på 5px*/
 }
 
 footer p::first-letter{/*påverkar den först bokstaven av p inom footer*/
@@ -283,16 +307,23 @@ footer p::first-line{/*påverkar första linjen av p element inom footer*/
 /*---------------------------------------------------------------------------------Alla speciella pseudoklasser---------------------------------------------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-p:target::after{
-	background-color: gold;
+#footer:target{/*när idn footer blir pekade på av en länk så aktiveras detta*/
+	background-color: rgb(85, 72, 1);/*bakgrundsfärg*/
 }
 
-p:target::before {
-	font: 70% sans-serif;
-	content: "►";
-	color: limegreen;
-	margin-right: 0.25em;
+#footer:target::before{/*samma som tidigare men lägger till följade innan elementet*/
+	content: "►";/*content saken skapar en unicode karaktär som ser ut som en pil som riktar åt höger*/
+	color: limegreen;/*sätter en färg på unicode karaktären*/
+	margin-right: 0.25rem;/*sätter lite avstånd från texten*/
 }
+
+#footer:target::after{/*samma som den innan men efter elementet istället*/
+	content: "◄";/*samma men andra riktningen*/
+	color: limegreen;/*samma som innan*/
+	margin-left: 0.25rem;/*samma som innan*/
+}
+
+/*-----LoVe FOCUS HAte-----*/
 
 a:link{/*påverkar alla länkar inom a*/
 	color: purple;/*default textfärg är lila*/
@@ -305,16 +336,16 @@ a:visited{/*påverkar alla besökta a taggar*/
 a:focus, a:hover{/*påverkar alla a taggar som man har musen över eller har fokus på*/
 	background-image: linear-gradient( /* gör en bakgrunds bild med dessa färger som är roterade på de grandantal so manges och färgerna täcker den procent som anges. */
 		-225deg,
-		rgb(70,42,168) 0%,
+		#462aa8 0%,
 		rgb(96,25,172) 25%,
-		rgb(255,19,97) 50%,
-		rgb(255,248,0) 75%,
-		rgb(70,42,168) 100%
+		hsl(340, 100%, 54%) 50%,
+		hwb(58 0% 0%) 75%,
+		rgb(70, 42, 168) 100%
 	);
 	background-clip: border-box; /* sammarbetar med background-image och skapar en låda under innehålet den är på. */
 	background-size: 200% auto; /* bilden blir 200% större och repeteras automatiskt. */
-	animation: färgsnurra 5s linear infinite; /* */
-	border-radius: 10px;
+	animation: färgsnurra 5s linear infinite; /*bestämmer hur animationen ska gå till, kopplar till keyframen färgsnurra som ligger under här, animationen ska ta 5s, den ska vara linjär (samma hastighet) samt att den ska repetera för alltid */
+	border-radius: 10px;/*sätter en runding av hörnen*/
 }
 
 a:active{/*påverkar alla aktiva a taggar*/
@@ -336,6 +367,7 @@ a:active{/*påverkar alla aktiva a taggar*/
 @font-face {/*skapar egen fontfamily med font-face*/
 	font-family: JohansFont;/*namn på min fontfamily*/
 	src: url(../FONTS/Sauce-Tomato-BF6633881064aa7.otf);/*den enda fonten som används är en som jag hittade online som var fri att använda*/
+	src: url(../FONTS/ranelia.otf);/*font #2*/
 }
 
 
@@ -354,7 +386,7 @@ a:active{/*påverkar alla aktiva a taggar*/
 	/*hela denna saken är ett felmeddelande system som varnar om skärmen är för liten och inte kommer fungera bra med hemsidan*/
 }
 
-@media screen and (max-width: 480px){/*aktiveras enbart om skärmen är mindre än 480px i bredd*/
+@media screen and (max-width: 480px), (orientation: portrait){/*aktiveras enbart om skärmen är mindre än 480px i bredd eller om skärmen är i poträttsläge*/
 	header > nav > ul {/*påverkar ul direkt inuti nav direkt inuti header*/
 		grid-template-areas: /*ändrar layouten av globalmenyn*/
 		"hem hem" /*sätter hemknappen över allt*/
@@ -383,6 +415,8 @@ a:active{/*påverkar alla aktiva a taggar*/
 		grid-template-columns: 1fr 1fr 1fr;/*gör om layouten till 3 spaltslayout*/
 	}
 }
+
+
 
 
 

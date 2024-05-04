@@ -63,18 +63,18 @@
 			</nav>
 			<main role="main">
 				<section>
-                    <table>
-                        <caption>Modifikationer för 3D-skrivare</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">Modifikation</th>
+                    <table><!--table elementet deklarerar att det är en tabell-->
+                        <caption>Modifikationer för 3D-skrivare</caption><!--sätter en liten titel till tabellen som beskriver vad det handlar om-->
+                        <thead><!--thead kan man jämföra med header i html, det är högst upp och är till för att ha information som tilhör det underliggande-->
+                            <tr><!--deklarerar att det är en ny rad på tabellen-->
+                                <th scope="col">Modifikation</th><!--table headers, är överst i tabellen, scope="col" menar att just det elementet är till för den kolumnen som finns under sig, går att specifiera om den ska tillhöra flera kolumner eller rows -->
                                 <th scope="col">Beskrivning</th>
                                 <th scope="col">Fördelar</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody><!--samma som thead men för main, självaste innehållet på tabellen-->
                             <tr>
-                                <td>Uppgraderad extruder</td>
+                                <td>Uppgraderad extruder</td><!--table data, självaste informationen som finns-->
                                 <td>Ersättning av standardextruder med en högpresterande.</td>
                                 <td>Förbättrad filamentmatning, bättre utskriftskvalitet, minskad igensättning.</td>
                             </tr>
@@ -99,20 +99,27 @@
                                 <td>Förhindrar överhettning, förbättrar utskriftskvaliteten, särskilt för överhäng.</td>
                             </tr>
                         </tbody>
-                        <tfoot>
+                        <tfoot><!--samma som thead eller tbody men för footer-->
                             <tr>
-                                <td colspan="3">För mer avancerade modifikationer och teknisk support, kontakta en erfaren användargrupp eller tillverkare.</td>
+                                <td colspan="3">För mer avancerade modifikationer och teknisk support, kontakta en erfaren användargrupp eller tillverkare.</td><!-- colspan="3" menar att den ska sträcka sig över alla 3 kolumner-->
                             </tr>
                         </tfoot>
                     </table>
                 </section>
                 <section>
-                    
+                    <figure>
+						<img src="../IMAGES/slightlycompressender3v2.png" alt="En bild på en modifierad Ender 3 V2">
+						<figcaption>En bild på en väldigt modifierad Ender 3 V2 skrivare</figcaption>
+					</figure>
                 </section>
 			</main>
 			<footer role="contentinfo">
 				<section>
-					<p>Här brukar man ha kontakt information</p>
+					<p>
+						Här brukar man ha kontakt information
+						<br>
+						men det har jag inte
+					</p>
 				</section>
 			</footer>
 		</div>

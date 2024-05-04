@@ -1,66 +1,66 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!--deklarerar att det är html kod-->
 
-<html lang="sv">
-	<head>
-		<meta charset="UTF-8">
-		<title>Startsida</title>
-		<link href="CSS/css.css" rel="stylesheet">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="sv"><!--början på html koden samt att det är skrivet på svenska-->
+	<head><!--länkar allt som behövs-->
+		<meta charset="UTF-8"><!--visar att det använder UTF-8-->
+		<title>Startsida</title><!--visar titeln på självaste sidan-->
+		<link href="CSS/css.css" rel="stylesheet"><!--länkar css filen till html koden-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--skickar en meta tag som kollar enhetens skärmstorlek så jag kan definera det i css-->
 	</head>
-	<body id="index">
-		<div class="wrapper">
-			<header role="banner">
-				<nav role="navigation">
-					<ul>
-						<li>
-							<a href="index.html">
-								<h1>
+	<body id="index"><!--början på body, denna har en id för den ska ha en unik layout-->
+		<div class="wrapper"><!--en klass för wrapper som har allt innehåll på sidan utom ett felmeddelande-->
+			<header role="banner"><!--början på globala naven, har även role banner för aria landmarks-->
+				<nav role="navigation"><!--början på nav för globala naven, har rolen navigation för aria landmarks-->
+					<ul><!--satt in de 3 hubudsidorna i en ul för jag ansåg att det var smartast-->
+						<li><!--list element -->
+							<a href="index.html"><!--a tagg som länkar till startsidan-->
+								<h1><!--huvudtitel, har speciell styling-->
 									Hem
 								</h1>
 							</a>
 						</li>
-						<li>
-							<a href="HTML/vad.html">								
-								Vad är en 3d skrivare									
+						<li><!--listelement 2-->
+							<a href="HTML/vad.html"><!--länkar till vad sidan-->								
+								Vad är en 3d skrivare		<!--texten som man ser-->							
 							</a>
 						</li>							
-						<li>
-							<a href="HTML/anvandning.html">									
+						<li><!--list element 3-->
+							<a href="HTML/anvandning.html"><!--samma men för användnings sidan-->									
 								Användning av en 3d skrivare								
 							</a>			
 						</li>
 					</ul>
 				</nav>
 			</header>		
-			<main role="main">
-				<section>
-					<h2>VÄLKOMMEN</h2>
+			<main role="main"><!--huvudinnehållet, har rollen main för aria landmarks-->
+				<section><!--har allt innehåll som ska vara uppdelat i varsin section eller article så det placeras på rätt sätt i gridsystemet-->
+					<h2>VÄLKOMMEN</h2><!--andra titel-->
 				</section>
-				<article>
-					<a href="#footer">Hoppa till bottnen av sidan</a>
+				<article><!--article istället för section för krav-->
+					<a href="#footer">Hoppa till bottnen av sidan</a><!--länkar till bottnen av sidan för att få med ::target och de andra-->
 				</article>
 				<section>
-					<form action="index.html" method="post">
-						<fieldset>
-							<legend>Information saker</legend>
-							<label for="namn">Namn:</label>
-							<input type="text" id="namn" name="namn" value="" placeholder="Skriv in ditt namn" required>
-							<br>
+					<form action="index.html" method="post"><!--starten av mitt formulär, länkar tillbaka till startsidan då jag anser att det är det som ska göras och använder method post så att all info inte spara i urlen-->
+						<fieldset><!--första fieldsetten som omfattar ungefär hälften av frågorna-->
+							<legend>Information saker</legend><!--legend som sätter ett namn i fieldset så det ser lite finare ut-->
+							<label for="namn">Namn:</label><!--label är satta på nästan alla inputs och är länkade til den input som de har koppling till-->
+							<input type="text" id="namn" name="namn" value="" placeholder="Skriv in ditt namn" required><!--text input där det står en placeholder sak så man vet att man kan skriva samt är den required så man måste skriva där för att kunna lämna in-->
+							<br><!--break line för avstånd-->
 							<label for="email">Email:</label>
 							<input type="email" id="email" name="email" value="" placeholder="Skriv din mejl" required>
 							<br>
 							<label for="mobil">Telefon nummer:</label>
-							<input type="tel" id="mobil" name="mobil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
+							<input type="tel" id="mobil" name="mobil" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890"><!--pattern är så att numret man skriver är ett giltligt nummer för privatpersoner-->
 							<br>
 							<label for="address">Adress:</label>
 							<textarea id="address" name="address" placeholder="Skriv in din adress"></textarea>
 							<br>
 							<label for="ålder">Ålder:</label>
-							<input type="number" id="ålder" name="ålder" value="" placeholder="Skriv din ålder" min="1" required>
+							<input type="number" id="ålder" name="ålder" value="" placeholder="Skriv din ålder" min="1" required><!--min är att man inte kan vara yngre än 1 år-->
 							<br>
 							<label for="bil">Favorit bil märke:</label>
-							<select id="bil" name="bil" required>
-								<option value="" selected disabled>Välj märke</option>
+							<select id="bil" name="bil" required><!--select omfattar flera options vilket i detta fallet är bilmärken-->
+								<option value="" selected disabled>Välj märke</option><!--option är ett val alternativ, kan skrivas hur många som helst, den första är för information och har selected disabled så man inte kan välja den-->
 								<option value="Volvo" >Volvo</option>
 								<option value="BMW">BMW</option>
 								<option value="Toyota">Toyota</option>
@@ -70,10 +70,10 @@
 							<input type="color" id="färg" name="färg" value="#ffffff">
 						</fieldset>
 						<br>
-						<fieldset>
+						<fieldset><!--fieldset 2-->
 							<legend>Frågor 2 för krav</legend>
 							<label for="välj">Vet inte men välj:</label>
-							<input type="range" id="välj" name="välj" value="0.1" min="0.1" max="1" step="0.1">
+							<input type="range" id="välj" name="välj" value="0.1" min="0.1" max="1" step="0.1"><!--sätter ett max värde av 1 och värdet justeras med 0.1 varje steg-->
 							<br>
 							<label for="infill">Favorit procent infill i 3d skrifter:</label>
 							<input type="number" id="infill" name="infill" value="" placeholder="Välj infill procenten du föredrar" min="0" max="100" step="1">
@@ -88,7 +88,7 @@
 							<input type="password" id="lösen" name="lösen" value="lösen">
 							<br>
 							<p>Är du under eller över 18?</p>
-							<input type="radio" id="underarton" name="arton" value="underarton" checked> &lt;18<label for="underarton"></label>
+							<input type="radio" id="underarton" name="arton" value="underarton" checked> &lt;18<label for="underarton"></label><!--har en label per radio så att det länkas rätt, denna har även en entitet för en pil då det inte kan skrivas i html utan att misstolkas-->
 							<br>
 							<input type="radio" id="overarton" name="arton" value="overarton"> 18+<label for="overarton"></label>
 							<br>	
@@ -103,7 +103,7 @@
 							<br>
 							<label for="datalist">Datalist:</label><br>
 							<input list="browsers" name="browser" id="datalist">
-							<datalist id="browsers">
+							<datalist id="browsers"><!--en lista med data så man kan antingen skriva eget eller kan man välja ett av de som dyker upp om man skriver en bokstav som finns i deras namn-->
 								<option value="Chrome">
 								<option value="Firefox">
 								<option value="Edge">
@@ -114,13 +114,13 @@
 							<progress id="progress" value="50" max="100"></progress><br>
 						</fieldset>
 						<br>
-						<button type="submit">Skicka in</button>
+						<button type="submit">Skicka in</button><!--en knapp som är kopplad till submit i forumet, kollar kraven av alla inputs innan den skickas in-->
 					</form>
 				</section>
 			</main>
-			<footer role="contentinfo" id="footer">
+			<footer role="contentinfo" ><!--footer delen, har role contentinfo för aria landmarks samt en id för att man ska kunna länka till denna i en av de övre innehållsbitarna-->
 				<section>
-					<p>
+					<p id="footer">
 						Här brukar man ha kontakt information
 						<br>
 						men det har jag inte
@@ -128,7 +128,7 @@
 				</section>
 			</footer>
 		</div>
-		<p>
+		<p><!--en p tagg som normalt inte syns men syns om skärmen blir för smal, fungerar som ett felmeddelande-->
 			Din enhet har för smal skärm för att fungera med våran hemsida, vänligen använd en annan enhet
 		</p>
 		
