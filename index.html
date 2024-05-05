@@ -4,8 +4,11 @@
 	<head><!--länkar allt som behövs-->
 		<meta charset="UTF-8"><!--visar att det använder UTF-8-->
 		<title>Startsida</title><!--visar titeln på självaste sidan-->
-		<link href="CSS/css.css" rel="stylesheet"><!--länkar css filen till html koden-->
+		<link href="css/css.css" rel="stylesheet"><!--länkar css filen till html koden-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"><!--skickar en meta tag som kollar enhetens skärmstorlek så jag kan definera det i css-->
+		<link rel="preconnect" href="https://fonts.googleapis.com"><!--kopplar koden till fonts.googleapis så koden kan förstå hur dens hemsida fungerar-->
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!--kopplar ihop denna sidan också för att fontnedladdningen, preconnect som finns på denna och den tidigare är där för att koden ska fatta att denna länkningen är för en senare nedladdning, vilekt är den som kommer efter denna, crossorigins är en typ förklaring för koden att hemsidan använder ett specifikt protokoll och att koden ska använda samma för att fungera-->
+		<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"><!--kopplar självaste fontens sida till koden så den kan laddas ner, ifall det inte funkar går den vidare till nästa i fontfamilyn-->
 	</head>
 	<body id="index"><!--början på body, denna har en id för den ska ha en unik layout-->
 		<div class="wrapper"><!--en klass för wrapper som har allt innehåll på sidan utom ett felmeddelande-->
@@ -20,12 +23,12 @@
 							</a>
 						</li>
 						<li><!--listelement 2-->
-							<a href="HTML/vad.html"><!--länkar till vad sidan-->								
+							<a href="html/vad.html"><!--länkar till vad sidan-->								
 								Vad är en 3d skrivare		<!--texten som man ser-->							
 							</a>
 						</li>							
 						<li><!--list element 3-->
-							<a href="HTML/anvandning.html"><!--samma men för användnings sidan-->									
+							<a href="html/anvandning.html"><!--samma men för användnings sidan-->									
 								Användning av en 3d skrivare								
 							</a>			
 						</li>
@@ -88,9 +91,9 @@
 							<input type="password" id="lösen" name="lösen" value="lösen">
 							<br>
 							<p>Är du under eller över 18?</p>
-							<input type="radio" id="underarton" name="arton" value="underarton" checked> &lt;18<label for="underarton"></label><!--har en label per radio så att det länkas rätt, denna har även en entitet för en pil då det inte kan skrivas i html utan att misstolkas-->
+							<input type="radio" id="underarton" name="arton" value="underarton" checked> <label for="underarton">&lt;18</label><!--har en label per radio så att det länkas rätt, denna har även en entitet för en pil då det inte kan skrivas i html utan att misstolkas-->
 							<br>
-							<input type="radio" id="overarton" name="arton" value="overarton"> 18+<label for="overarton"></label>
+							<input type="radio" id="overarton" name="arton" value="overarton"> <label for="overarton">18+</label>
 							<br>	
 							<label for="url">Favorit URL:</label><br>
 							<input type="url" id="url" name="url" value="https://exempel.se"><br>
@@ -98,8 +101,8 @@
 							<label for="tid">Klockslag:</label><br>
 							<input type="time" id="tid" name="tid" value="12:00"><br>
 							<br>
-							<label for="test">Test tryck knappen innan du skickar in dina svar:</label><br>
-							<button type="button" id="test" name="test">Test knapp</button><br>
+							<p>Test tryck knappen innan du skickar in dina svar:</p>
+							<button type="button">Test knapp</button><br>
 							<br>
 							<label for="datalist">Datalist:</label><br>
 							<input list="browsers" name="browser" id="datalist">

@@ -14,7 +14,7 @@
 body {/*innehåller allt innehåll på sidan*/
 	margin: 0; /* Återställer marginalen till 0 för att undvika ovälkomna utrymmen */
 	padding: 0;/*samma men för padding*/
-	font-family: monospace;/*sätter font familyn till mitt favorit typsnitt vilket är monospace vilket alla kan använda*/
+	font-family: "Anton", monospace;/*sätter font familyn till ett länkat typsnitt som bara finns i index så det kommer enbart att användas där, resten av sidorna kommer använda nummer 2 i familje vilket är mitt favorit typsnitt vilket är monospace vilket alla kan använda*/
 	height:100vh; /*Sätter storleken till 100vh*/
 }
 
@@ -40,6 +40,7 @@ a{/*påverkar alla a element i hela koden*/
  	align-items: center;/*centrerar innehållet vertikalt*/
 	font-size: 2rem;/*sätter textstorleken till 2 större än rotelementets textstorlek*/
 }
+
 
 
 /*----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -81,7 +82,7 @@ header > nav > ul >li:last-child {/*samma men för sista*/
 
 h1{/*påverkar h1, titel elementet*/
 	font-size: 2rem;/*sätter textstorleken så det är lite större än de andra i header elementet*/
-	font-family: JohansFont, monospace;/*Bestämmer vilken ordning som fonten ska appliceras, först blir min egna fontface som är med en font som jag laddat ner, om inte det funkar så blir det default monospace*/
+	font-family: JohansFont, JohansFont2, monospace;/*Bestämmer vilken ordning som fonten ska appliceras, först blir min egna fontface som är med en font som jag laddat ner, om inte det funkar så blir det default monospace*/
 }
 
 header ~ nav{/*påverkar navs efter header elementet*/
@@ -135,8 +136,9 @@ nav button{/*påverkar alla buttons inom nav*/
 	height: 100%;/*sätter höjden på 100% så att inte sectionen under den trycker upp den*/
 }
 
-nav button img{/*påverkar img inom button inom nav*/
-	height: 1rem;/*sätter en höjd av storleken 1rem på bilden, blir automatiskt samma på bredden också*/	
+nav button svg{/*påverkar svg element inom button inom nav*/
+	width: 1rem;/*sätter bredden till 1rem*/
+	height: 1rem;/*samma men höjden*/
 }
 
 nav a{/*påverkar alla a element inom nav*/
@@ -167,7 +169,7 @@ main {/*påverkar elementet main*/
 }
 
 main section:not(:first-child), main article:not(:first-child){/*påverkar alla sections och articles inom main som inte är den första på sidan*/
-	background-color: rgb(153, 149, 149);/*ändrar default färgen från brun till en fin grå*/
+	background-color: rgb(189, 189, 189);/*ändrar default färgen från brun till en fin grå*/
 }
 
 main section section:first-child{/*påverkar den först section inom en annan section inom main, mestadels för att se till att uppdelat innehåll i en section inte ska få fel färg*/
@@ -180,17 +182,13 @@ main > section, main > article{/*påverkar alla sections or articles inom main*/
 	align-items: center;/*ifall det är mer innehåll i varje section så ser detta till att deras mittpunkt vertikalt är på samma nivå*/
 	margin: 2ex;/*ser till att det är lite mellanrum mellan varje section och artikel*/
 	font-size: 1.2em;/*ändrar storleken till 1.2em då det passar väl*/
-	background-color: rgb(117, 90, 1);/*sätter bakgrundsfärgen på alla sections till brun(den tidigare selektorsaken motverkar detta på alla utom den första*/
+	background-color: rgb(165, 126, 0);/*sätter bakgrundsfärgen på alla sections till brun(den tidigare selektorsaken motverkar detta på alla utom den första*/
 	border-radius: 1ch;/*rundar hörnen med intensiteten 1ch*/
 	height: min-content;/*ser till att höjden inte är större än precis det som behövs*/
-	max-width: 100%;
+	max-width: 100%;/*ser till att innehållet inte blir större än ytan den får*/
 }
-/*
-#industriellanvandning main > section > div{
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-*/
+
+
 /*-----Självaste innehåll saker-----*/
 
 main a{/*påverkar alla a taggar inom main*/
@@ -215,6 +213,7 @@ video, audio, iframe{/*påverkar iframe, video och ljud element*/
 	border: none;
 }
 
+
 /*-----Tabellsaker samt listor-----*/
 
 td, th{/*påverkar td och th vilket är självaste texten och innehållet i tabellen utom footern*/
@@ -227,6 +226,7 @@ table, dl, ol {/*påverkar tabell, deskriptiv list och ordered list*/
 	border-spacing: 0; /*mestadels för kravet men ser till att avståndet mellan varje cell i en tabell är 0, går att specifiera avståndet både vertikalt och horizontellt*/
 	margin-left: 5px;/*detta tillsammas med nästa sers till att det är lite mellanrum där jag ansåg att det behövdes*/
 	margin-right: 5px;
+	word-wrap: break-word;/*ser  till att om innehållet är större än rutan att order bryts och inte överlappar till andra rutor*/
 }
 
 table{/*påverkar hela tabellen*/
@@ -239,6 +239,7 @@ th, td, dt, dd, ol li {/*påverkar th, td, dt, dd och li inom en ol*/
 	text-align: left;/*gör att texten är åt vänster i tabellen för jag anser att det är bättre*/
 	padding: 10px; /*ser till att texten alltid har lite avstånd från sin cells border*/
 	vertical-align: top; /*gör att innehållet är så högt uppåt det kan*/
+	word-wrap: break-word;/*ser  till att om innehållet är större än rutan att order bryts och inte överlappar till andra rutor*/
 }
 
 th {/*påverkar enbart th element*/
@@ -260,6 +261,7 @@ dl{/*påverkar dl*/
 ol{/*påverkar ol*/
 	padding: 0;/*tar bort padding som automatiskt finns med ols siffror*/
 }
+
 
 /*-----Formulärsaker-----*/
 
@@ -294,7 +296,7 @@ footer p{/*påverkar p element inom footer*/
 }
 
 footer p::first-letter{/*påverkar den först bokstaven av p inom footer*/
-	font-family: JohansFont;/*ändrar typsnittet till min speciella fontface, ifall det inte går återgår det till default typsnitt vilket är monospace*/
+	font-family: JohansFont, JohansFont2, monospace;/*ändrar typsnittet till min speciella fontface, ifall det inte går återgår det till default typsnitt vilket är monospace*/
 }
 
 footer p::first-line{/*påverkar första linjen av p element inom footer*/
@@ -323,14 +325,15 @@ footer p::first-line{/*påverkar första linjen av p element inom footer*/
 	margin-left: 0.25rem;/*samma som innan*/
 }
 
+
 /*-----LoVe FOCUS HAte-----*/
 
 a:link{/*påverkar alla länkar inom a*/
-	color: purple;/*default textfärg är lila*/
+	color: rgb(131, 7, 131);/*default textfärg är lila*/
 }
 
 a:visited{/*påverkar alla besökta a taggar*/
-	color: red;/*ger dem färgen rött*/
+	color: rgb(0, 0, 0);/*ger dem färgen rött*/
 }
 
 a:focus, a:hover{/*påverkar alla a taggar som man har musen över eller har fokus på*/
@@ -367,6 +370,10 @@ a:active{/*påverkar alla aktiva a taggar*/
 @font-face {/*skapar egen fontfamily med font-face*/
 	font-family: JohansFont;/*namn på min fontfamily*/
 	src: url(../FONTS/Sauce-Tomato-BF6633881064aa7.otf);/*den enda fonten som används är en som jag hittade online som var fri att använda*/
+}
+
+@font-face {/*skapar font family 2 ifall den första inte vill fungera*/
+	font-family: JohansFont2;/*namn på min andra fontfamily*/
 	src: url(../FONTS/ranelia.otf);/*font #2*/
 }
 
@@ -408,6 +415,9 @@ a:active{/*påverkar alla aktiva a taggar*/
 		font-size: 1.5rem;/*ändrar textstorleken*/
 	}
 
+	#industriellanvandning main section{/*påverkar section inom main inom industriell användning*/
+		display: none;/*gömmer innehållet då ljudfiler blir inte så användarvänliga vid denna skärmsbredden*/
+	}
 }
 
 @media screen and (min-width: 2000px){/*aktiveras enbart om skärmen är bredare än 2000px, aka widescreen*/
